@@ -1,1 +1,7 @@
-TODO
+Micronaut Test Internal is an internal support module for Micronaut Modules.
+
+This project publishes the `io.micronaut.test.internal:micronaut-test-internal-bom` BOM, which centralizes versions for libraries that are reused across Micronaut Modules tests and internal build tooling.
+
+Using the BOM keeps internal dependencies aligned across repositories and allows version upgrades to be applied from a single place instead of repeating versions in each module.
+
+The managed coordinates are declared in `gradle/libs.versions.toml` and published through the `micronaut-test-internal-bom` subproject.

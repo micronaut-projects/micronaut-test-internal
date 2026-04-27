@@ -1,1 +1,42 @@
-TODO
+To use this module's BOM, modify `settings.gradle` in your module and define:
+
+```groovy
+micronautBuild {
+    useStandardizedProjectNames = true
+    importMicronautCatalog()
+    ...
+    ..
+    .
+    importMicronautCatalog("micronaut-test-internal")
+```
+
+Then, in the module `gradle/libs.versions.toml` define the version:
+
+[source, toml]
+----
+[versions]
+...
+..
+.
+micronaut-test-internal = "1.0.0"
+
+[libraries]
+micronaut-test-internal = { module = "io.micronaut.test.internal:micronaut-test-internal-bom", version.ref = "micronaut-test-internal" }
+----
+
+Then, for example you can use `awaitility` in your module's build files:
+
+[source, kotlin]
+----
+dependencies {
+    testImplementation(mnTestInternal.awaitility)
+}
+----
+
+== Updating Managed Versions
+
+To change the BOM contents, update the entries in `gradle/libs.versions.toml`.
+
+The `versions` section defines the resolved versions, and the `libraries` section declares the coordinates that will be managed by the BOM.
+
+When a Micronaut Modules repository upgrades one of these shared test libraries, the change should be made here first and then consumed by bumping the published BOM version in the downstream repository.
