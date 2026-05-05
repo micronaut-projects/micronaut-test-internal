@@ -3,6 +3,7 @@ micronaut = "5.0.0-M24"
 managed-system-stubs = "2.1.8"
 managed-bcpkix = "1.81"
 managed-awaitility = "4.3.0"
+managed-spotbugs = "4.9.8"
 
 [libraries]
 # Core
@@ -11,6 +12,7 @@ micronaut-core = { module = 'io.micronaut:micronaut-core-bom', version.ref = 'mi
 managed-bcpkix = { module = "org.bouncycastle:bcpkix-jdk18on", version.ref = "managed-bcpkix" }
 managed-system-stubs = { module = "uk.org.webcompere:system-stubs-core", version.ref = "managed-system-stubs" }
 managed-awaitility = { module = 'org.awaitility:awaitility', version.ref = 'managed-awaitility' }
+managed-spotbugs = { module = "com.github.spotbugs:spotbugs-annotations", version.ref = "managed-spotbugs" }
 
 [bundles]
 
